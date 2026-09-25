@@ -1,0 +1,12 @@
+[project]
+name = "arr-tool"
+version = "1.0.0"
+description = "Conjunto de ferramentas úteis para desenvolvedores, principalmente no quesito de versionamento de código"
+requires-python = ">= 3.10"
+authors = [
+  {name = "Arthur Rodrigues Ramos", email = "arthurrodrigues1801r@gmail.com"},
+]
+readme = "README.md"
+
+[project.scripts]
+arr-tool = "arr_tool.cli:main"
