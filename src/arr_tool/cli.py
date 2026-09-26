@@ -7,10 +7,23 @@ logger = logging.getLogger(__name__)
 
 def command_execute(command):
     engine = Engine()
-    if command == 'commit-message':
-        print(f'Generated message: {engine.commit_message()}')
-    elif command == 'uuid':
-        print(f'Generated UUID: {engine.generated_uuid()}')
+    command_request = command.command
+    message_return = ''
+
+    if command_request == 'commit-message':
+        message_return = f'Generated message: {engine.commit_message()}'
+
+    elif command_request == 'uuid':
+        message_return = f'Generated UUID: {engine.generated_uuid()}'
+
+    elif command_request == 'verify-port':
+        port = command.port
+        response = engine.socket_verify(port)
+        status = 'AVAILABLE' if response != 0 else 'NO AVAILABLE'
+        message_return = f'The status port is: {status}'
+
+    print(message_return)
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -20,7 +33,10 @@ def main():
     subparsers.add_parser('commit-message')
     subparsers.add_parser('uuid')
 
-    command = parser.parse_args().command
+    verify_port = subparsers.add_parser('verify-port')
+    verify_port.add_argument('port', type=int)
+
+    command = parser.parse_args()
     command_execute(command)
 
 if __name__ == "__main__":
