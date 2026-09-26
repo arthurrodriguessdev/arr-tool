@@ -7,8 +7,12 @@ load_dotenv()
 
 class ModelAI:
     def __init__(self):
+        api_key = os.environ.get('GROQ_API_KEY')
+        if not api_key:
+            raise RuntimeError('GROQ_API_KEY is missing. Please set it in your .env file.')
+        
         self.client = OpenAI(
-            api_key=os.environ.get('GROQ_API_KEY'),
+            api_key=api_key,
             base_url=os.environ.get('GROQ_API_URL')
         )
 

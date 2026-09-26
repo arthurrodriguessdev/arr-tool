@@ -61,7 +61,7 @@ class Engine:
             return True
 
         except:
-            return False
+            raise RuntimeError('Your .env file was not found')
 
     def run(self, capture_output=True):
         self.result_command = subprocess.run(

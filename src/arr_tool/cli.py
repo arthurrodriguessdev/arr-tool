@@ -23,10 +23,8 @@ def command_execute(command):
         message_return = f'The status port is: {status}'
 
     elif command_request == 'env-example':
-        if engine.generate_env_example():
-            message_return = 'Your file was generated successfully'
-        else:
-            message_return = 'Your .env file was not found'
+        engine.generate_env_example()
+        message_return = 'Your file was generated successfully'
 
     print(message_return)
 
