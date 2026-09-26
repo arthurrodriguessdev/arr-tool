@@ -19,7 +19,25 @@ Pequenas tarefas aparecem o tempo todo no fluxo de desenvolvimento: preparar uma
 
 ## Instalação
 
-Requer Python 3.10 ou superior. Clone o repositório e instale o projeto em modo editável:
+Requer Python 3.10 ou superior.
+
+## Instalação via PyPI
+
+A forma mais simples de instalar o ARR Tool é diretamente pelo PyPI:
+
+```bash
+python -m pip install arr-tool
+```
+
+Depois da instalação, o comando arr-tool estará disponível no ambiente:
+
+```bash
+arr-tool uuid
+```
+
+## Instalação para desenvolvimento
+
+Para clonar o projeto e trabalhar diretamente no código-fonte:
 
 ```bash
 git clone https://github.com/arthurrodriguessdev/arr-tool.git
@@ -111,14 +129,6 @@ src/arr_tool/
 ├── ai.py                  # Cliente da API e leitura de configuração
 └── prompts.py             # Instruções para a sugestão de commit
 ```
-
-## Para quem está avaliando o projeto
-
-O ARR Tool demonstra um pacote Python instalável com entry point de CLI, separação entre interface e lógica de aplicação, uso de bibliotecas padrão para UUID e sockets, integração com API compatível com OpenAI e configuração de segredos por variáveis de ambiente. O projeto é pequeno o bastante para explorar rapidamente e concreto o bastante para mostrar um fluxo completo, da entrada do comando à integração externa.
-
-## Próximos passos
-
-Testes automatizados, validação mais robusta de portas e arquivos `.env`, documentação em inglês e publicação no PyPI são oportunidades naturais de evolução.
 
 ## Licença
 
