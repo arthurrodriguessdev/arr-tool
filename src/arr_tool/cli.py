@@ -14,7 +14,7 @@ def command_execute(command):
         message_return = f'Generated message: {engine.commit_message()}'
 
     elif command_request == 'uuid':
-        message_return = f'Generated UUID: {engine.generated_uuid()}'
+        message_return = f'Generated UUID: {engine.generate_uuid()}'
 
     elif command_request == 'verify-port':
         port = command.port
@@ -22,8 +22,13 @@ def command_execute(command):
         status = 'AVAILABLE' if response != 0 else 'NO AVAILABLE'
         message_return = f'The status port is: {status}'
 
-    print(message_return)
+    elif command_request == 'env-example':
+        if engine.generate_env_example():
+            message_return = 'Your file was generated successfully'
+        else:
+            message_return = 'Your .env file was not found'
 
+    print(message_return)
 
 def main():
     parser = argparse.ArgumentParser()
@@ -32,6 +37,7 @@ def main():
     # Armazenando os comandos possíveis
     subparsers.add_parser('commit-message')
     subparsers.add_parser('uuid')
+    subparsers.add_parser('env-example')
 
     verify_port = subparsers.add_parser('verify-port')
     verify_port.add_argument('port', type=int)
