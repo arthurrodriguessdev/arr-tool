@@ -9,6 +9,8 @@ def command_execute(command):
     engine = Engine()
     if command == 'commit-message':
         print(f'Generated message: {engine.commit_message()}')
+    elif command == 'uuid':
+        print(f'Generated UUID: {engine.generated_uuid()}')
 
 def main():
     parser = argparse.ArgumentParser()
@@ -16,6 +18,7 @@ def main():
 
     # Armazenando os comandos possíveis
     subparsers.add_parser('commit-message')
+    subparsers.add_parser('uuid')
 
     command = parser.parse_args().command
     command_execute(command)

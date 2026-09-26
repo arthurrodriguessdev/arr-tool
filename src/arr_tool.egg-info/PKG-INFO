@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: arr-tool
+Version: 1.0.0
+Summary: Conjunto de ferramentas úteis para desenvolvedores, principalmente no quesito de versionamento de código
+Author-email: Arthur Rodrigues Ramos <arthurrodrigues1801r@gmail.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
