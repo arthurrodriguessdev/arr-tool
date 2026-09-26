@@ -1,12 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "arr-tool"
 version = "1.0.0"
-description = "Conjunto de ferramentas úteis para desenvolvedores, principalmente no quesito de versionamento de código"
-requires-python = ">= 3.10"
-authors = [
-  {name = "Arthur Rodrigues Ramos", email = "arthurrodrigues1801r@gmail.com"},
-]
+description = "Conjunto de ferramentas úteis para desenvolvedores, principalmente no versionamento de código"
 readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+
+authors = [
+  { name = "Arthur Rodrigues Ramos", email = "arthurrodrigues1801r@gmail.com" },
+]
+
+dependencies = [
+  "openai>=1.66",
+  "python-dotenv>=1.0",
+]
 
 [project.scripts]
 arr-tool = "arr_tool.cli:main"

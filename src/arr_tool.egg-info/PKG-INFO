@@ -5,3 +5,5 @@ Summary: Conjunto de ferramentas úteis para desenvolvedores, principalmente no 
 Author-email: Arthur Rodrigues Ramos <arthurrodrigues1801r@gmail.com>
 Requires-Python: >=3.10
 Description-Content-Type: text/markdown
+Requires-Dist: openai>=1.66
+Requires-Dist: python-dotenv>=1.0

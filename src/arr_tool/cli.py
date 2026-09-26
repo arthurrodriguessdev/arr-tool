@@ -18,8 +18,10 @@ def command_execute(command):
 
     elif command_request == 'verify-port':
         port = command.port
-        response = engine.socket_verify(port)
-        status = 'AVAILABLE' if response != 0 else 'NO AVAILABLE'
+        if engine.socket_verify(port):
+            status = 'AVAILABLE'
+        else:
+            status = 'NO AVAILABLE'
         message_return = f'The status port is: {status}'
 
     elif command_request == 'env-example':
@@ -32,7 +34,7 @@ def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest='command')
 
-    # Armazenando os comandos possíveis
+    # Defining the available commands
     subparsers.add_parser('commit-message')
     subparsers.add_parser('uuid')
     subparsers.add_parser('env-example')
